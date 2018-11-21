@@ -17,6 +17,26 @@
 /* global getAssetRegistry getParticipantRegistry getFactory */
 
 /**
+ * Updates given object.
+ *
+ * @param {com.biz.Animal} animal - object to persist
+ */
+async function updateAnimal(animal){
+    const ar = await getAssetRegistry('com.biz.Animal');
+    await ar.update(animal);
+}
+
+/**
+ * Updates given object.
+ *
+ * @param {com.biz.Business} business - object to persist
+ */
+async function updateBusiness(business){
+    const br = await getAssetRegistry('com.biz.Business');
+    await br.update(business);
+}
+
+/**
  *
  * @param {com.biz.AnimalMovementDeparture} movementDeparture - model instance
  * @transaction
@@ -31,8 +51,7 @@ async function onAnimalMovementDeparture(movementDeparture) {  // eslint-disable
     movementDeparture.animal.movementStatus = 'IN_TRANSIT';
 
      // save the animal
-    const ar = await getAssetRegistry('com.biz.Animal');
-    await ar.update(movementDeparture.animal);
+    await updateAnimal(movementDeparture.animal);
 
     // add the animal to the incoming animals of the
     // destination business
@@ -43,8 +62,7 @@ async function onAnimalMovementDeparture(movementDeparture) {  // eslint-disable
     }
 
     // save the business
-    const br = await getAssetRegistry('com.biz.Business');
-    await br.update(movementDeparture.to);
+    await updateBusiness(movementDeparture.to);
 }
 
 /**

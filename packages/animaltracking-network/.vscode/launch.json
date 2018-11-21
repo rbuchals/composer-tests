@@ -1,0 +1,44 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            // Type of configuration. Possible values: "node", "mono".
+            "type": "node",
+            // Request type of configuration. Can be "launch" or "attach".
+            "request": "launch",
+            // Name of configuration; appears in the launch configuration drop down menu.
+            "name": "Run integration tests",
+            // Workspace relative or absolute path to the program.
+            "program": "C:\\projects\\hyperledger_composer\\composer-sample-networks\\node_modules\\mocha\\bin\\_mocha",
+            // Automatically stop program after launch.
+            "stopOnEntry": false,
+            // Command line arguments passed to the program.
+			"args": ["-t", "0", "test/mozart.cto.js"],
+			// Workspace relative or absolute path to the working directory of the program being debugged. Default is the current workspace.
+			"cwd": "${workspaceFolder}/",
+			// Workspace relative or absolute path to the runtime executable to be used. Default is the runtime executable on the PATH.
+			"runtimeExecutable": null
+        },
+        {
+            // Type of configuration. Possible values: "node", "mono".
+            "type": "node",
+            // Request type of configuration. Can be "launch" or "attach".
+            "request": "launch",
+            // Name of configuration; appears in the launch configuration drop down menu.
+            "name": "Run unit tests",
+            // Workspace relative or absolute path to the program.
+            "program": "C:\\projects\\hyperledger_composer\\composer-sample-networks\\node_modules\\mocha\\bin\\_mocha",
+            // Automatically stop program after launch.
+            "stopOnEntry": false,
+            // Command line arguments passed to the program.
+			"args": ["-t", "0", "test/unit_tests.js"],
+			// Workspace relative or absolute path to the working directory of the program being debugged. Default is the current workspace.
+			"cwd": "${workspaceFolder}/",
+			// Workspace relative or absolute path to the runtime executable to be used. Default is the runtime executable on the PATH.
+			"runtimeExecutable": null
+        }
+    ]
+}

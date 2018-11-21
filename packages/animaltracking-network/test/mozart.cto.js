@@ -152,6 +152,7 @@ describe('Animal Tracking Network', function() {
         it('should change an animal to IN_FIELD and change its owner, location and remove it from incoming animals', async () => {
             let animal = await runAnimalMovementDepartureAndGetAnimal();
             let animalId = animal.getIdentifier();
+
             const transaction = factory.newTransaction(namespace, 'AnimalMovementArrival');
             transaction.animal = factory.newRelationship(namespace, 'Animal', animalId);
             transaction.from = factory.newRelationship(namespace, 'Business', 'BUSINESS_1');
